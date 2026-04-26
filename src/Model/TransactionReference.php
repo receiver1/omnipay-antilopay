@@ -76,7 +76,7 @@ class TransactionReference {
   }
 
   public function getCustomer(): CustomerReference {
-    return new CustomerReference($this->customer['email'], $this->customer['phone'],
-      $this->customer['address'], $this->customer['ip'], $this->customer['fullname']);
+    return new CustomerReference($this->customer['email'] ?? null, $this->customer['phone'] ?? null,
+      $this->customer['address'] ?? null, $this->customer['ip'] ?? null, $this->customer['fullname'] ?? null);
   }
 }

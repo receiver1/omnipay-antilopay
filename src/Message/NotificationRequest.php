@@ -26,7 +26,7 @@ class NotificationRequest extends AbstractRequest implements NotificationInterfa
   }
 
   public function isValid(): bool {
-    return $this->verifyData($this->httpRequest->getContent(), $this->httpRequest->headers->get('X-Apay-Callback'));
+    return $this->verifyData($this->httpRequest->getContent(), (string)$this->httpRequest->headers->get('X-Apay-Callback'));
   }
 
   public function getTransactionReference(): TransactionReference {
@@ -37,7 +37,7 @@ class NotificationRequest extends AbstractRequest implements NotificationInterfa
   }
 
   public function getTransactionStatus(): string {
-    if ($this->data['status'] == 'SUCCESS') {
+    if ($this->data['status'] === 'SUCCESS') {
       return NotificationInterface::STATUS_COMPLETED;
     }
     return NotificationInterface::STATUS_FAILED;
