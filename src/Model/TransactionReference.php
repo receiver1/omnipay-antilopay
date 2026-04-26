@@ -9,7 +9,7 @@ class TransactionReference {
   private $fee;
   private $currency;
   private $productName;
-  private $descripion;
+  private $description;
   private $payMethod;
   private $payData;
   private $customerIp;
@@ -48,35 +48,35 @@ class TransactionReference {
   }
 
   public function getCurrency(): string {
-    return $currency;
+    return $this->currency;
   }
 
   public function getProductName(): string {
-    return $productName;
+    return $this->productName;
   }
 
   public function getDescription(): string {
-    return $description;
+    return $this->description;
   }
 
   public function getPayMethod(): string {
-    return $payMethod;
+    return $this->payMethod;
   }
 
   public function getPayData(): string {
-    return $payData;
+    return $this->payData;
   }
 
   public function getCustomerIp(): string {
-    return $customerIp;
+    return $this->customerIp;
   }
 
   public function getCustomerUserAgent(): string {
-    return $customerUserAgent;
+    return $this->customerUserAgent;
   }
 
   public function getCustomer(): CustomerReference {
-    return new CustomerReference($customer['email'], $customer['phone'],
-      $customer['address'], $customer['ip'], $customer['fullname']);
+    return new CustomerReference($this->customer['email'], $this->customer['phone'],
+      $this->customer['address'], $this->customer['ip'], $this->customer['fullname']);
   }
 }
